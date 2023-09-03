@@ -1,12 +1,13 @@
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	module: {
 		rules: [
-			{
-				test: /\.ttf$/,
-				use: ['file-loader']
-			}
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
 		]
 	},
 	plugins: [new MonacoWebpackPlugin()]
